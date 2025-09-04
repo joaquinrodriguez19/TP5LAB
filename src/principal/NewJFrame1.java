@@ -4,10 +4,14 @@
  */
 package principal;
 
+import javax.swing.JInternalFrame;
+import principal.AgregarCliente; 
+
 /**
  *
  * @author rodri
  */
+
 public class NewJFrame1 extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(NewJFrame1.class.getName());
@@ -45,6 +49,11 @@ public class NewJFrame1 extends javax.swing.JFrame {
         mnucliente.setText("Cliente");
 
         mniAgregarcliente.setText("Agregar Cliente");
+        mniAgregarcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniAgregarclienteActionPerformed(evt);
+            }
+        });
         mnucliente.add(mniAgregarcliente);
 
         mniBuscarcliente.setText("Buscar Cliente");
@@ -95,10 +104,22 @@ public class NewJFrame1 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private void abrirYCentrar(JInternalFrame frame) {
+        JPanel1.add(frame);
+        frame.setVisible(true);
+        int x = (JPanel1.getWidth() - frame.getWidth()) / 2;
+        int y = (JPanel1.getHeight() - frame.getHeight()) / 2;
+        frame.setLocation(x, y);
+    }
 
     private void mniBuscarporciudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniBuscarporciudadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mniBuscarporciudadActionPerformed
+
+    private void mniAgregarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAgregarclienteActionPerformed
+         AgregarCliente agregarCliente = new AgregarCliente();
+        abrirYCentrar(AgregarCliente);
+    }//GEN-LAST:event_mniAgregarclienteActionPerformed
 
     /**
      * @param args the command line arguments

@@ -20,10 +20,10 @@ public class Principal {
         System.out.println("Buscar contacto: " + dir.buscarContacto(1234567890L));
 
         // Por apellido //
-        System.out.println("Teléfonos de Saez: " + dir.buscarTelefono("Pérez"));
+        //System.out.println("Teléfonos de Saez: " + dir.buscarTelefono("Pérez"));
 
         // Por ciudad //
-        System.out.println("Contactos en Juana Koslay: " + dir.buscarContactos("Mendoza"));
+        //System.out.println("Contactos en Juana Koslay: " + dir.buscarContactos("Mendoza"));
 
         // Borrar //
         dir.borrarContacto(9876543210L);

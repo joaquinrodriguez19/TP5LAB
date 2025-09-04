@@ -22,6 +22,28 @@ public class Contacto {
     public String getCiudad() { return ciudad; }
     public String getDireccion() { return direccion; }
 
+    public void setDni(int dni) {
+        this.dni = dni;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    
+    
     @Override
     public String toString() {
         return apellido + ", " + nombre + " (" + ciudad + ")";

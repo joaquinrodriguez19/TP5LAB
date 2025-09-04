@@ -1,5 +1,6 @@
-
 package principal;
+
+import java.util.TreeMap;
 
 /**
  *
@@ -7,24 +8,24 @@ package principal;
  */
 class Directorio {
 
-    void agregarContacto(long l, Contacto contacto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private static TreeMap<Long, Contacto> directorio;
+
+    public Directorio() {
+        this.directorio = new TreeMap<>();
     }
 
-    String buscarContacto(long l) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void agregarContacto(long l, Contacto contacto) {
+
+        directorio.put(l, contacto);
+
     }
 
-    String buscarTelefono(String pérez) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Contacto buscarContacto(long l) {
+        return directorio.get(l);
     }
 
-    String buscarContactos(String mendoza) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void borrarContacto(long l) {
+        directorio.remove(l);
     }
 
-    void borrarContacto(long l) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
 }

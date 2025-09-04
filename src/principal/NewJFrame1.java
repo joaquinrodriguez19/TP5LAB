@@ -4,16 +4,16 @@
  */
 package principal;
 
+
 import javax.swing.JInternalFrame;
-import principal.AgregarCliente; 
+import principal.AgregarCliente;
 
 /**
  *
  * @author rodri
  */
-
 public class NewJFrame1 extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(NewJFrame1.class.getName());
 
     /**
@@ -32,6 +32,7 @@ public class NewJFrame1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnucliente = new javax.swing.JMenu();
         mniAgregarcliente = new javax.swing.JMenuItem();
@@ -45,6 +46,21 @@ public class NewJFrame1 extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        escritorio.setMaximumSize(new java.awt.Dimension(6, 0));
+        escritorio.setMinimumSize(new java.awt.Dimension(900, 900));
+        escritorio.setPreferredSize(new java.awt.Dimension(600, 600));
+
+        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
+        escritorio.setLayout(escritorioLayout);
+        escritorioLayout.setHorizontalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 900, Short.MAX_VALUE)
+        );
+        escritorioLayout.setVerticalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 900, Short.MAX_VALUE)
+        );
 
         mnucliente.setText("Cliente");
 
@@ -95,30 +111,27 @@ public class NewJFrame1 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void abrirYCentrar(JInternalFrame frame) {
-        JPanel1.add(frame);
-        frame.setVisible(true);
-        int x = (JPanel1.getWidth() - frame.getWidth()) / 2;
-        int y = (JPanel1.getHeight() - frame.getHeight()) / 2;
-        frame.setLocation(x, y);
-    }
+
 
     private void mniBuscarporciudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniBuscarporciudadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mniBuscarporciudadActionPerformed
 
     private void mniAgregarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAgregarclienteActionPerformed
-         AgregarCliente agregarCliente = new AgregarCliente();
-        abrirYCentrar(AgregarCliente);
+        AgregarCliente agregarCliente = new AgregarCliente();
+        abrirYCentrar(agregarCliente);
     }//GEN-LAST:event_mniAgregarclienteActionPerformed
 
     /**
@@ -142,11 +155,22 @@ public class NewJFrame1 extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new NewJFrame1().setVisible(true));
+
+    }
+
+    private void abrirYCentrar(JInternalFrame frame) {
+        escritorio.add(frame);
+        frame.setVisible(true);
+        int x = (escritorio.getWidth() - frame.getWidth()) / 2;
+        int y = (escritorio.getHeight() - frame.getHeight()) / 2;
+        frame.setLocation(x, y);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem mniAgregarciudad;

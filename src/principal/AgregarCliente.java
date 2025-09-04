@@ -4,17 +4,22 @@
  */
 package principal;
 
+import javax.swing.JInternalFrame;
+
 /**
  *
  * @author tomas
  */
-public class AgregarCliente extends javax.swing.JFrame {
+public class AgregarCliente extends JInternalFrame {
 
     /**
      * Creates new form AgregarCliente
      */
     public AgregarCliente() {
-        initComponents();
+        super("Agregar Cliente", true, true, true, true); 
+        initComponents(); 
+        setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
+        pack();
     }
 
     /**

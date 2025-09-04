@@ -15,9 +15,7 @@ class Directorio {
     }
 
     public void agregarContacto(long l, Contacto contacto) {
-
         directorio.put(l, contacto);
-
     }
 
     public Contacto buscarContacto(long l) {

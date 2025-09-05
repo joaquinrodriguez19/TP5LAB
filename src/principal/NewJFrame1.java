@@ -7,6 +7,7 @@ package principal;
 
 import javax.swing.JInternalFrame;
 import principal.AgregarCliente;
+import principal.BuscarCliente;
 
 /**
  *
@@ -73,6 +74,11 @@ public class NewJFrame1 extends javax.swing.JFrame {
         mnucliente.add(mniAgregarcliente);
 
         mniBuscarcliente.setText("Buscar Cliente");
+        mniBuscarcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniBuscarclienteActionPerformed(evt);
+            }
+        });
         mnucliente.add(mniBuscarcliente);
 
         mniBorrarcliente.setText("Borrar Cliente");
@@ -133,6 +139,12 @@ public class NewJFrame1 extends javax.swing.JFrame {
         AgregarCliente agregarCliente = new AgregarCliente();
         abrirYCentrar(agregarCliente);
     }//GEN-LAST:event_mniAgregarclienteActionPerformed
+
+    private void mniBuscarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniBuscarclienteActionPerformed
+        // TODO add your handling code here:
+        BuscarCliente buscarCliente=new BuscarCliente();
+        abrirYCentrar(buscarCliente);
+    }//GEN-LAST:event_mniBuscarclienteActionPerformed
 
     /**
      * @param args the command line arguments

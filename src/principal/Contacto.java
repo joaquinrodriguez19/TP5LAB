@@ -1,12 +1,14 @@
-
 package principal;
 
+import java.util.Objects;
+
 public class Contacto {
-    private int dni;
-    private String nombre;
-    private String apellido;
-    private String ciudad;
-    private String direccion;
+
+    private final int dni;
+    private final String nombre;
+    private final String apellido;
+    private final String ciudad;
+    private final String direccion;
 
     public Contacto(int dni, String nombre, String apellido, String ciudad, String direccion) {
         this.dni = dni;
@@ -16,36 +18,45 @@ public class Contacto {
         this.direccion = direccion;
     }
 
-    public int getDni() { return dni; }
-    public String getNombre() { return nombre; }
-    public String getApellido() { return apellido; }
-    public String getCiudad() { return ciudad; }
-    public String getDireccion() { return direccion; }
-
-    public void setDni(int dni) {
-        this.dni = dni;
+    public int getDni() {
+        return dni;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    public String getCiudad() {
+        return ciudad;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public String getDireccion() {
+        return direccion;
     }
 
-    
-    
     @Override
     public String toString() {
-        return apellido + ", " + nombre + " (" + ciudad + ")";
+        return dni + " - " + apellido + ", " + nombre + " (" + ciudad + ")";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Contacto)) {
+            return false;
+        }
+        Contacto that = (Contacto) o;
+        return dni == that.dni;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dni);
     }
 }

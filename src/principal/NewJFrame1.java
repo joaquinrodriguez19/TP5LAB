@@ -4,10 +4,7 @@
  */
 package principal;
 
-
 import javax.swing.JInternalFrame;
-import principal.AgregarCliente;
-import principal.BuscarCliente;
 
 /**
  *
@@ -16,12 +13,21 @@ import principal.BuscarCliente;
 public class NewJFrame1 extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(NewJFrame1.class.getName());
+    public static final Directorio DIRECTORIO = new Directorio();
+
+    static {
+        DIRECTORIO.addCiudad("San Luis");
+        DIRECTORIO.addCiudad("Villa Mercedes");
+    }
 
     /**
      * Creates new form NewJFrame1
      */
     public NewJFrame1() {
         initComponents();
+        for (var i = 0; i < DIRECTORIO.getCiudades().toArray().length; i++) {
+            System.out.println("ciudad = " + i + DIRECTORIO.getCiudades().toArray()[i]);
+        }
     }
 
     /**
@@ -47,10 +53,11 @@ public class NewJFrame1 extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 600));
+        setResizable(false);
+        setSize(new java.awt.Dimension(800, 600));
 
         escritorio.setMaximumSize(new java.awt.Dimension(6, 0));
-        escritorio.setMinimumSize(new java.awt.Dimension(900, 900));
-        escritorio.setPreferredSize(new java.awt.Dimension(600, 600));
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
@@ -104,6 +111,11 @@ public class NewJFrame1 extends javax.swing.JFrame {
         mnuciudades.setText("Ciudades");
 
         mniAgregarciudad.setText("Agragar Ciudad");
+        mniAgregarciudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniAgregarciudadActionPerformed(evt);
+            }
+        });
         mnuciudades.add(mniAgregarciudad);
 
         jMenuBar1.add(mnuciudades);
@@ -119,15 +131,16 @@ public class NewJFrame1 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
+                .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -136,15 +149,20 @@ public class NewJFrame1 extends javax.swing.JFrame {
     }//GEN-LAST:event_mniBuscarporciudadActionPerformed
 
     private void mniAgregarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAgregarclienteActionPerformed
-        AgregarCliente agregarCliente = new AgregarCliente();
-        abrirYCentrar(agregarCliente);
+        AgregarCliente agregar = new AgregarCliente(NewJFrame1.DIRECTORIO);
+        abrirYCentrar(agregar);
     }//GEN-LAST:event_mniAgregarclienteActionPerformed
 
     private void mniBuscarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniBuscarclienteActionPerformed
         // TODO add your handling code here:
-        BuscarCliente buscarCliente=new BuscarCliente();
-        abrirYCentrar(buscarCliente);
+        BuscarCliente buscar = new BuscarCliente(NewJFrame1.DIRECTORIO);
+        abrirYCentrar(buscar);
     }//GEN-LAST:event_mniBuscarclienteActionPerformed
+
+    private void mniAgregarciudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAgregarciudadActionPerformed
+        AgregarCiudad ac = new AgregarCiudad(NewJFrame1.DIRECTORIO);
+        abrirYCentrar(ac);
+    }//GEN-LAST:event_mniAgregarciudadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,7 +193,9 @@ public class NewJFrame1 extends javax.swing.JFrame {
 
     private void abrirYCentrar(JInternalFrame frame) {
         escritorio.add(frame);
+        frame.pack(); 
         frame.setVisible(true);
+
         int x = (escritorio.getWidth() - frame.getWidth()) / 2;
         int y = (escritorio.getHeight() - frame.getHeight()) / 2;
         frame.setLocation(x, y);

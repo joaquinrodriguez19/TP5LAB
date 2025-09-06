@@ -1,41 +1,39 @@
 package principal;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
-/**
- *
- * @author 54266
- */
-class Directorio {
+public class Directorio {
 
-    private static TreeMap<Long, Contacto> directorio;
+    private final TreeMap<Long, Contacto> agenda = new TreeMap<>();
+    private final TreeSet<String> ciudades = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
 
-    public Directorio() {
-        this.directorio = new TreeMap<>();
-    }
-    
-
-    public void agregarContacto(long l, Contacto contacto) {
-        directorio.put(l, contacto);
+    public boolean agregarContacto(long telefono, Contacto contacto) {
+        if (agenda.containsKey(telefono)) {
+            return false;
+        }
+        agenda.put(telefono, contacto);
+        if (contacto.getCiudad() != null && !contacto.getCiudad().isEmpty()) {
+            ciudades.add(contacto.getCiudad());
+        }
+        return true;
     }
 
-    public Contacto buscarContacto(long l) {
-        return directorio.get(l);
-    }
-
-    public void borrarContacto(long l) {
-        directorio.remove(l);
+    public Contacto buscarContacto(long telefono) {
+        return agenda.get(telefono);
     }
 
     public Set<Long> buscarTelefono(String apellido) {
         Set<Long> telefonos = new HashSet<>();
-        for (Map.Entry<Long, Contacto> entry : directorio.entrySet()) {
-            if (entry.getValue().getApellido().equalsIgnoreCase(apellido)) {
-                telefonos.add(entry.getKey());
+        if (apellido == null) {
+            return telefonos;
+        }
+
+        for (Iterator<Map.Entry<Long, Contacto>> it = agenda.entrySet().iterator(); it.hasNext();) {
+            Map.Entry<Long, Contacto> e = it.next();
+            Contacto c = e.getValue();
+            if (c != null && c.getApellido() != null
+                    && c.getApellido().equalsIgnoreCase(apellido)) {
+                telefonos.add(e.getKey());
             }
         }
         return telefonos;
@@ -43,12 +41,41 @@ class Directorio {
 
     public ArrayList<Contacto> buscarContactos(String ciudad) {
         ArrayList<Contacto> lista = new ArrayList<>();
-        for (Contacto c : directorio.values()) {
-            if (c.getCiudad().equalsIgnoreCase(ciudad)) {
+        if (ciudad == null) {
+            return lista;
+        }
+
+        for (Iterator<Contacto> it = agenda.values().iterator(); it.hasNext();) {
+            Contacto c = it.next();
+            if (c != null && c.getCiudad() != null
+                    && c.getCiudad().equalsIgnoreCase(ciudad)) {
                 lista.add(c);
             }
         }
         return lista;
     }
 
+    public boolean borrarContacto(long telefono) {
+        return agenda.remove(telefono) != null;
+    }
+
+
+    public SortedSet<String> getCiudades() {
+        return Collections.unmodifiableSortedSet(ciudades);
+    }
+
+    public boolean addCiudad(String ciudad) {
+        if (ciudad == null || ciudad.isBlank()) {
+            return false;
+        }
+        return ciudades.add(ciudad.trim());
+    }
+
+    public Set<Long> keySet() {
+        return agenda.keySet();
+    }
+
+    public Set<Map.Entry<Long, Contacto>> entrySet() {
+        return agenda.entrySet();
+    }
 }

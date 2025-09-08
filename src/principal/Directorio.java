@@ -65,7 +65,7 @@ public class Directorio {
     }
 
     public boolean addCiudad(String ciudad) {
-        if (ciudad == null || ciudad.isBlank()) {
+        if (ciudad == null || ciudad.isEmpty()) {
             return false;
         }
         return ciudades.add(ciudad.trim());

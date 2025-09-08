@@ -25,7 +25,7 @@ public class NewJFrame1 extends javax.swing.JFrame {
      */
     public NewJFrame1() {
         initComponents();
-        for (var i = 0; i < DIRECTORIO.getCiudades().toArray().length; i++) {
+        for (int i = 0; i < DIRECTORIO.getCiudades().toArray().length; i++) {
             System.out.println("ciudad = " + i + DIRECTORIO.getCiudades().toArray()[i]);
         }
     }

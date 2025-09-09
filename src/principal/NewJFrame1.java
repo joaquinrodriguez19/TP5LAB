@@ -53,7 +53,6 @@ public class NewJFrame1 extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
 
@@ -104,13 +103,18 @@ public class NewJFrame1 extends javax.swing.JFrame {
         mnudirectorio.add(mniBuscarporciudad);
 
         mniBuscarporapellido.setText("Buscar Telefono por Apellido");
+        mniBuscarporapellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniBuscarporapellidoActionPerformed(evt);
+            }
+        });
         mnudirectorio.add(mniBuscarporapellido);
 
         jMenuBar1.add(mnudirectorio);
 
         mnuciudades.setText("Ciudades");
 
-        mniAgregarciudad.setText("Agragar Ciudad");
+        mniAgregarciudad.setText("Agregar Ciudad");
         mniAgregarciudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mniAgregarciudadActionPerformed(evt);
@@ -145,7 +149,8 @@ public class NewJFrame1 extends javax.swing.JFrame {
 
 
     private void mniBuscarporciudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniBuscarporciudadActionPerformed
-        // TODO add your handling code here:
+buscarciudad ciudad = new buscarciudad (NewJFrame1.DIRECTORIO);
+abrirYCentrar(ciudad);        // TODO add your handling code here:
     }//GEN-LAST:event_mniBuscarporciudadActionPerformed
 
     private void mniAgregarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAgregarclienteActionPerformed
@@ -163,6 +168,11 @@ public class NewJFrame1 extends javax.swing.JFrame {
         AgregarCiudad ac = new AgregarCiudad(NewJFrame1.DIRECTORIO);
         abrirYCentrar(ac);
     }//GEN-LAST:event_mniAgregarciudadActionPerformed
+
+    private void mniBuscarporapellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniBuscarporapellidoActionPerformed
+BuscarApellido apellido = new BuscarApellido (NewJFrame1.DIRECTORIO);
+abrirYCentrar(apellido);// TODO add your handling code here:
+    }//GEN-LAST:event_mniBuscarporapellidoActionPerformed
 
     /**
      * @param args the command line arguments

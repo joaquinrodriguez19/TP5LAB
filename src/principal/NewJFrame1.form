@@ -49,6 +49,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buscar Telefono por Apellido"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniBuscarporapellidoActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -59,7 +62,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mniAgregarciudad">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Agragar Ciudad"/>
+                <Property name="text" type="java.lang.String" value="Agregar Ciudad"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniAgregarciudadActionPerformed"/>

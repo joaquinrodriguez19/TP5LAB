@@ -289,7 +289,7 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
     }
 
     private void cargarContacto(long telefono, Contacto contacto) {
-        txtTelefono.setText(String.valueOf(telefono));
+        //txtTelefono.setText(String.valueOf(telefono));
         if (contacto == null) {
             limpiarFormulario();
             return;

@@ -7,6 +7,10 @@ public class Directorio {
     private final TreeMap<Long, Contacto> agenda = new TreeMap<>();
     private final TreeSet<String> ciudades = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
 
+    public TreeMap<Long, Contacto> getAgenda() {
+        return agenda;
+    }
+    
     public boolean agregarContacto(long telefono, Contacto contacto) {
         if (agenda.containsKey(telefono)) {
             return false;

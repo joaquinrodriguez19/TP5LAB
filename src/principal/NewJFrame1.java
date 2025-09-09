@@ -4,6 +4,8 @@
  */
 package principal;
 
+import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.JInternalFrame;
 
 /**
@@ -193,9 +195,72 @@ abrirYCentrar(apellido);// TODO add your handling code here:
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
+        
+        Random random = new Random();
+        String[] arrayCiudades = DIRECTORIO.getCiudades().toArray(new String[0]);        
         //</editor-fold>
-
-
+        Contacto c1 = new Contacto(43627847, "Mario", "Perez",arrayCiudades[random.nextInt(arrayCiudades.length)] ,"Direccion 1");
+        Contacto c2 = new Contacto(34726968, "Alberto", "Trombosis",arrayCiudades[random.nextInt(arrayCiudades.length)] ,"Direccion 2");
+        Contacto c3 = new Contacto(30918736, "Pelado", "De las Piscinas",arrayCiudades[random.nextInt(arrayCiudades.length)] ,"Direccion 3");
+        Contacto c4 = new Contacto(44928756, "Maria", "Civetti",arrayCiudades[random.nextInt(arrayCiudades.length)] ,"Direccion 4");
+        Contacto c5 = new Contacto(36728958, "Facundo", "Sosa",arrayCiudades[random.nextInt(arrayCiudades.length)] ,"Direccion 5");
+        
+        
+        System.out.println("------------------------------------------------");
+        System.out.println("Agregando contactos");
+        DIRECTORIO.agregarContacto(2664827492L,c1);
+        DIRECTORIO.agregarContacto(2664627594L,c2);
+        DIRECTORIO.agregarContacto(2665927810L,c3);
+        DIRECTORIO.agregarContacto(2657981735L,c4);
+        DIRECTORIO.agregarContacto(2665938145L,c5);
+        System.out.println("------------------------------------------------");
+        if(DIRECTORIO.getAgenda().size() == 5) {
+            System.out.println("Se agregaron 5 contactos");
+        } else {
+            System.out.println("Hubo un error al agregar los contactos");
+        }
+        System.out.println("------------------------------------------------");
+        System.out.println("Buscando un contacto");
+        System.out.println("------------------------------------------------");
+        Contacto contactoEncontrado = DIRECTORIO.buscarContacto(2664827492L);
+        if(contactoEncontrado != null) {
+            System.out.println("Contacto encontrado: " + contactoEncontrado.getNombre());
+        } else {
+            System.out.println("Hubo un error al buscar el contacto");
+        }
+        System.out.println("------------------------------------------------");
+        System.out.println("Buscando un telefono");
+        System.out.println("------------------------------------------------");
+        Long telefonoEncontrado = DIRECTORIO.buscarTelefono(c2.getApellido()).iterator().next();
+        if(telefonoEncontrado != null) {
+            System.out.println("Telefono encontrado: " + telefonoEncontrado);
+        } else {
+            System.out.println("Hubo un error al buscar el telefono");
+        }
+        System.out.println("------------------------------------------------");
+        System.out.println("Buscando contactos por ciudad");
+        System.out.println("------------------------------------------------");
+        ArrayList<Contacto> contactosEncontrados = DIRECTORIO.buscarContactos(arrayCiudades[random.nextInt(arrayCiudades.length)]);
+        if(contactosEncontrados.size() > 0) {
+            System.out.println("Contactos encontrados");
+            for (Contacto c : contactosEncontrados) {
+                System.out.println(c.getNombre());
+            }
+        } else {
+            System.out.println("Hubo un error al buscar por ciudad");
+        }
+        System.out.println("------------------------------------------------");
+        
+        System.out.println("Borrando un contacto");
+        System.out.println("------------------------------------------------");
+        boolean borrado = DIRECTORIO.borrarContacto(2665938145L);
+        if(borrado) {
+            System.out.println("Contacto eliminado correctamente");
+        } else {
+            System.out.println("Hubo un error al borrar el contacto");
+        }
+        
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new NewJFrame1().setVisible(true));
 

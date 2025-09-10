@@ -5,7 +5,6 @@
 package principal;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -13,40 +12,39 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
-import principal.Directorio;
 
-/**
- *
- * @author Nicolas
- */
 public class BuscarApellido extends JInternalFrame {
-    
+
     private final DefaultListModel<String> modeloApellidos = new DefaultListModel<>();
     private final List<String> todosLosApellidos = new ArrayList<>();
     private final Directorio directorio;
 
-    private JList<String> lstApellidos;
-    private JTextField txtFiltro;
-    private JTable tablaResultados;
     private DefaultTableModel modeloTabla;
 
-   public BuscarApellido(Directorio directorio) {
+    public BuscarApellido(Directorio directorio) {
         super("Buscar Cliente por Apellido", true, true, true, true);
         this.directorio = Objects.requireNonNull(directorio, "directorio");
         initComponents();
+
+        // Inicializar tabla vacía
+        modeloTabla = (DefaultTableModel) jTable1.getModel();
+        modeloTabla.setRowCount(0);
+
+        // Cargar todos los apellidos en la lista
+        cargarApellidos();
 
         configurarEventos();
     }
 
     private void configurarEventos() {
-        // filtro mientras escribís
+        // Filtro mientras escribís
         txtApellido.getDocument().addDocumentListener(new DocumentListener() {
             @Override public void insertUpdate(DocumentEvent e) { aplicarFiltro(); }
             @Override public void removeUpdate(DocumentEvent e) { aplicarFiltro(); }
             @Override public void changedUpdate(DocumentEvent e) { aplicarFiltro(); }
         });
 
-        // selecciona un apellido
+        // Selección en la lista
         jlista.addListSelectionListener(event -> {
             if (!event.getValueIsAdjusting()) {
                 String apellido = jlista.getSelectedValue();
@@ -57,43 +55,48 @@ public class BuscarApellido extends JInternalFrame {
         });
     }
 
-   
-private void aplicarFiltro() {
+    private void aplicarFiltro() {
         String filtro = txtApellido.getText().trim().toLowerCase();
-        if (filtro.isEmpty()) {
-            recargarModelo(todosLosApellidos);
-            return;
-        }
-        List<String> filtrados = new ArrayList<>();
+        modeloApellidos.clear();
+
         for (String a : todosLosApellidos) {
             if (a.toLowerCase().startsWith(filtro)) {
-                filtrados.add(a);
+                modeloApellidos.addElement(a);
             }
         }
-        recargarModelo(filtrados);
     }
-    private void recargarModelo(List<String> fuente) {
+
+    private void cargarApellidos() {
+        todosLosApellidos.clear();
+        for (Map.Entry<Long, Contacto> entry : directorio.entrySet()) {
+            String apellido = entry.getValue().getApellido();
+            if (!todosLosApellidos.contains(apellido)) {
+                todosLosApellidos.add(apellido);
+            }
+        }
+        todosLosApellidos.sort(String::compareToIgnoreCase);
+
         modeloApellidos.clear();
-        for (String a : fuente) modeloApellidos.addElement(a);
+        for (String a : todosLosApellidos) {
+            modeloApellidos.addElement(a);
+        }
+
         jlista.setModel(modeloApellidos);
     }
 
- 
-
     private void mostrarContactos(String apellido) {
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.setRowCount(0);
+        modeloTabla.setRowCount(0); // limpiar
 
         for (Map.Entry<Long, Contacto> entry : directorio.entrySet()) {
             Contacto c = entry.getValue();
             if (c.getApellido().equalsIgnoreCase(apellido)) {
-                model.addRow(new Object[]{
+                modeloTabla.addRow(new Object[]{
                     c.getDni(),
                     c.getApellido(),
                     c.getNombre(),
                     c.getDireccion(),
                     c.getCiudad(),
-                    entry.getKey() 
+                    entry.getKey() // Teléfono
                 });
             }
         }

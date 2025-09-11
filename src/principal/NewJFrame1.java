@@ -127,6 +127,16 @@ public class NewJFrame1 extends javax.swing.JFrame {
         jMenuBar1.add(mnuciudades);
 
         jMenu4.setText("Salir");
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
+        jMenu4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu4ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
@@ -175,6 +185,25 @@ abrirYCentrar(ciudad);        // TODO add your handling code here:
 BuscarApellido apellido = new BuscarApellido (NewJFrame1.DIRECTORIO);
 abrirYCentrar(apellido);// TODO add your handling code here:
     }//GEN-LAST:event_mniBuscarporapellidoActionPerformed
+
+    private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
+ 
+            // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu4ActionPerformed
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+    int resp = javax.swing.JOptionPane.showConfirmDialog(
+                this,
+                "¿Seguro que quiere salir?",
+                "Salir",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.QUESTION_MESSAGE
+        );
+
+        if (resp == javax.swing.JOptionPane.YES_OPTION) {
+            dispose();
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu4MouseClicked
 
     /**
      * @param args the command line arguments

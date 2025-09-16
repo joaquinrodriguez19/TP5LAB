@@ -114,22 +114,22 @@ public class BuscarApellido extends JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jApellido = new javax.swing.JLabel();
+        lblApellido = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
-        jtitulo = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        lblTitulo = new javax.swing.JLabel();
+        srcLista = new javax.swing.JScrollPane();
         jlista = new javax.swing.JList<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        srcTabla = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jbSalir = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
-        jApellido.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jApellido.setText("Apellido: ");
+        lblApellido.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblApellido.setText("Apellido: ");
 
-        jtitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jtitulo.setText("Buscar Telefono por Apellido");
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitulo.setText("Buscar Telefono por Apellido");
 
-        jScrollPane1.setViewportView(jlista);
+        srcLista.setViewportView(jlista);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -142,12 +142,12 @@ public class BuscarApellido extends JInternalFrame {
                 "DNI", "Apellido", "Nombre", "Direccion", "Ciudad", "Telefono"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        srcTabla.setViewportView(jTable1);
 
-        jbSalir.setText("Salir");
-        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSalirActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
 
@@ -159,38 +159,38 @@ public class BuscarApellido extends JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jApellido)
+                        .addComponent(lblApellido)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(srcLista, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(txtApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE))
+                        .addComponent(srcTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jbSalir)))
+                        .addComponent(btnSalir)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(226, 226, 226)
-                .addComponent(jtitulo)
+                .addComponent(lblTitulo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jtitulo)
+                .addComponent(lblTitulo)
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jApellido)
+                            .addComponent(lblApellido)
                             .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(srcLista, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(srcTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(jbSalir)
+                .addComponent(btnSalir)
                 .addGap(29, 29, 29))
         );
 
@@ -213,20 +213,20 @@ public class BuscarApellido extends JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
      this.dispose();
-    }//GEN-LAST:event_jbSalirActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jApellido;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JButton jbSalir;
     private javax.swing.JList<String> jlista;
-    private javax.swing.JLabel jtitulo;
+    private javax.swing.JLabel lblApellido;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JScrollPane srcLista;
+    private javax.swing.JScrollPane srcTabla;
     private javax.swing.JTextField txtApellido;
     // End of variables declaration//GEN-END:variables
 }

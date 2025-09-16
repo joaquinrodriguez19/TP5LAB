@@ -41,10 +41,10 @@ private void llenarComboCiudad() {
             for (String c : directorio.getCiudades()) {
                 model.addElement(c);
             }
-            jcbciudades.setModel(model);  
-             jcbciudades.setSelectedIndex(0);
-           jcbciudades.revalidate();
-           jcbciudades.repaint();
+            cbnCiudades.setModel(model);  
+             cbnCiudades.setSelectedIndex(0);
+           cbnCiudades.revalidate();
+           cbnCiudades.repaint();
 
          
         });
@@ -91,27 +91,27 @@ private void limpiarTabla() {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTitulo = new javax.swing.JLabel();
-        jbSalir = new javax.swing.JButton();
-        jcbciudades = new javax.swing.JComboBox<>();
+        lblTitulo = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JButton();
+        cbnCiudades = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtDatos = new javax.swing.JTable();
 
-        jTitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jTitulo.setText("Buscar Clientes de Directorio por Ciudad");
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitulo.setText("Buscar Clientes de Directorio por Ciudad");
 
-        jbSalir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jbSalir.setText("Salir");
-        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSalirActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
 
-        jcbciudades.addActionListener(new java.awt.event.ActionListener() {
+        cbnCiudades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbciudadesActionPerformed(evt);
+                cbnCiudadesActionPerformed(evt);
             }
         });
 
@@ -138,15 +138,15 @@ private void limpiarTabla() {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jcbciudades, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbnCiudades, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(28, 28, 28)
-                                .addComponent(jTitulo))
+                                .addComponent(lblTitulo))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -156,16 +156,16 @@ private void limpiarTabla() {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addComponent(jTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(12, 12, 12)
-                        .addComponent(jcbciudades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cbnCiudades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
-                .addComponent(jbSalir)
+                .addComponent(btnSalir)
                 .addContainerGap(67, Short.MAX_VALUE))
         );
 
@@ -188,28 +188,28 @@ private void limpiarTabla() {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
        this.dispose();
-    }//GEN-LAST:event_jbSalirActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void jcbciudadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbciudadesActionPerformed
-           String ciudadSeleccionada = (String) jcbciudades.getSelectedItem();
+    private void cbnCiudadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbnCiudadesActionPerformed
+           String ciudadSeleccionada = (String) cbnCiudades.getSelectedItem();
 
     if (ciudadSeleccionada != null && !ciudadSeleccionada.equals("Seleccionar ciudad")) {
         cargarTabla(ciudadSeleccionada);
     } else {
         limpiarTabla();
     }
-    }//GEN-LAST:event_jcbciudadesActionPerformed
+    }//GEN-LAST:event_cbnCiudadesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JComboBox<String> cbnCiudades;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel jTitulo;
-    private javax.swing.JButton jbSalir;
-    private javax.swing.JComboBox<String> jcbciudades;
     private javax.swing.JTable jtDatos;
+    private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 }

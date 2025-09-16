@@ -38,7 +38,7 @@ public class AgregarCiudad extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         txtCiudad = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        lblCiudad = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         lblAgregarCiudad = new javax.swing.JLabel();
@@ -49,7 +49,7 @@ public class AgregarCiudad extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel1.setText("Nombre Ciudad:");
+        lblCiudad.setText("Nombre Ciudad:");
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +83,7 @@ public class AgregarCiudad extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnSalir))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -93,7 +93,7 @@ public class AgregarCiudad extends javax.swing.JInternalFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 152, Short.MAX_VALUE)
+            .addGap(0, 155, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -101,7 +101,7 @@ public class AgregarCiudad extends javax.swing.JInternalFrame {
                     .addGap(36, 36, 36)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1))
+                        .addComponent(lblCiudad))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnGuardar)
@@ -162,9 +162,9 @@ public class AgregarCiudad extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAgregarCiudad;
+    private javax.swing.JLabel lblCiudad;
     private javax.swing.JTextField txtCiudad;
     // End of variables declaration//GEN-END:variables
 }

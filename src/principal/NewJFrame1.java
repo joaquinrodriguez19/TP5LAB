@@ -52,7 +52,8 @@ public class NewJFrame1 extends javax.swing.JFrame {
         mniBuscarporapellido = new javax.swing.JMenuItem();
         mnuciudades = new javax.swing.JMenu();
         mniAgregarciudad = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        mniSalir = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -64,7 +65,7 @@ public class NewJFrame1 extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
+            .addGap(0, 1068, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,6 +91,11 @@ public class NewJFrame1 extends javax.swing.JFrame {
         mnucliente.add(mniBuscarcliente);
 
         mniBorrarcliente.setText("Borrar Cliente");
+        mniBorrarcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniBorrarclienteActionPerformed(evt);
+            }
+        });
         mnucliente.add(mniBorrarcliente);
 
         jMenuBar1.add(mnucliente);
@@ -126,18 +132,27 @@ public class NewJFrame1 extends javax.swing.JFrame {
 
         jMenuBar1.add(mnuciudades);
 
-        jMenu4.setText("Salir");
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+        mniSalir.setText("Salir");
+        mniSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
+                mniSalirMouseClicked(evt);
             }
         });
-        jMenu4.addActionListener(new java.awt.event.ActionListener() {
+        mniSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu4ActionPerformed(evt);
+                mniSalirActionPerformed(evt);
             }
         });
-        jMenuBar1.add(jMenu4);
+
+        jMenuItem1.setText("Salir");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        mniSalir.add(jMenuItem1);
+
+        jMenuBar1.add(mniSalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -186,13 +201,23 @@ BuscarApellido apellido = new BuscarApellido (NewJFrame1.DIRECTORIO);
 abrirYCentrar(apellido);// TODO add your handling code here:
     }//GEN-LAST:event_mniBuscarporapellidoActionPerformed
 
-    private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
+    private void mniSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSalirActionPerformed
  
             // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu4ActionPerformed
+    }//GEN-LAST:event_mniSalirActionPerformed
 
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-    int resp = javax.swing.JOptionPane.showConfirmDialog(
+    private void mniSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mniSalirMouseClicked
+           // TODO add your handling code here:
+    }//GEN-LAST:event_mniSalirMouseClicked
+
+    private void mniBorrarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniBorrarclienteActionPerformed
+        // TODO add your handling code here:
+        BorrarCliente borrar = new BorrarCliente(NewJFrame1.DIRECTORIO);
+        abrirYCentrar(borrar);
+    }//GEN-LAST:event_mniBorrarclienteActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        int resp = javax.swing.JOptionPane.showConfirmDialog(
                 this,
                 "¿Seguro que quiere salir?",
                 "Salir",
@@ -202,8 +227,8 @@ abrirYCentrar(apellido);// TODO add your handling code here:
 
         if (resp == javax.swing.JOptionPane.YES_OPTION) {
             dispose();
-        }        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu4MouseClicked
+        }         // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,14 +332,15 @@ abrirYCentrar(apellido);// TODO add your handling code here:
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem mniAgregarciudad;
     private javax.swing.JMenuItem mniAgregarcliente;
     private javax.swing.JMenuItem mniBorrarcliente;
     private javax.swing.JMenuItem mniBuscarcliente;
     private javax.swing.JMenuItem mniBuscarporapellido;
     private javax.swing.JMenuItem mniBuscarporciudad;
+    private javax.swing.JMenu mniSalir;
     private javax.swing.JMenu mnuciudades;
     private javax.swing.JMenu mnucliente;
     private javax.swing.JMenu mnudirectorio;

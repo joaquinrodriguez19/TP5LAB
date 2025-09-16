@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Contacto" package="principal" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="dni" type="int" visibility="private" isFinal="true"/>
+        <Field name="nombre" type="String" visibility="private" isFinal="true"/>
+        <Field name="apellido" type="String" visibility="private" isFinal="true"/>
+        <Field name="ciudad" type="String" visibility="private" isFinal="true"/>
+        <Field name="direccion" type="String" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="dni"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="ciudad"/>
+          <Argument type="String" name="direccion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDni" returnType="int" visibility="public"/>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="getCiudad" returnType="String" visibility="public"/>
+        <Method name="getDireccion" returnType="String" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="o"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Directorio" package="principal" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="agenda" type="TreeMap&lt;Long, Contacto&gt;" visibility="private" isFinal="true"/>
+        <Field name="ciudades" type="TreeSet&lt;String&gt;" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getAgenda" returnType="TreeMap&lt;Long, Contacto&gt;" visibility="public"/>
+        <Method name="agregarContacto" returnType="boolean" visibility="public">
+          <Argument type="long" name="telefono"/>
+          <Argument type="Contacto" name="contacto"/>
+        </Method>
+        <Method name="buscarContacto" returnType="Contacto" visibility="public">
+          <Argument type="long" name="telefono"/>
+        </Method>
+        <Method name="buscarTelefono" returnType="Set&lt;Long&gt;" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="buscarContactos" returnType="ArrayList&lt;Contacto&gt;" visibility="public">
+          <Argument type="String" name="ciudad"/>
+        </Method>
+        <Method name="borrarContacto" returnType="boolean" visibility="public">
+          <Argument type="Long" name="telefono"/>
+        </Method>
+        <Method name="getCiudades" returnType="SortedSet&lt;String&gt;" visibility="public"/>
+        <Method name="addCiudad" returnType="boolean" visibility="public">
+          <Argument type="String" name="ciudad"/>
+        </Method>
+        <Method name="keySet" returnType="Set&lt;Long&gt;" visibility="public"/>
+        <Method name="entrySet" returnType="Set&lt;Map.Entry&lt;Long, Contacto&gt;&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="principal.Directorio" target="principal.Contacto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="agenda" source="principal.Directorio" target="principal.Contacto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TreeMap&lt;Long, Contacto&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

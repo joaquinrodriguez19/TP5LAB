@@ -59,9 +59,16 @@ public class Directorio {
         return lista;
     }
 
-    public boolean borrarContacto(long telefono) {
-        return agenda.remove(telefono) != null;
+   public boolean borrarContacto(Long telefono) {
+    if Contacto.containsKey(telefono)) {
+        Contacto.remove(telefono);
+        System.out.println("Contacto eliminado");
+        return true;
+    } else {
+        System.out.println("No existe esxe contacto ");
+        return false;
     }
+}
 
 
     public SortedSet<String> getCiudades() {
